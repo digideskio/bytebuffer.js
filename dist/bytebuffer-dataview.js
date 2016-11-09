@@ -2220,7 +2220,7 @@
         var len = end - begin;
         if (len === 0) {
             this.buffer = EMPTY_BUFFER;
-            this.view = null;
+            this.view = new Uint8Array(this.buffer);
             if (this.markedOffset >= 0) this.markedOffset -= begin;
             this.offset = 0;
             this.limit = 0;

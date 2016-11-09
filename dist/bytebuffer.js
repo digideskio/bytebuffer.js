@@ -70,11 +70,11 @@
         this.buffer = capacity === 0 ? EMPTY_BUFFER : new ArrayBuffer(capacity);
 
         /**
-         * Uint8Array utilized to manipulate the backing buffer. Becomes `null` if the backing buffer has a capacity of `0`.
+         * Uint8Array utilized to manipulate the backing buffer.
          * @type {?Uint8Array}
          * @expose
          */
-        this.view = capacity === 0 ? null : new Uint8Array(this.buffer);
+        this.view = new Uint8Array(this.buffer);
 
         /**
          * Absolute read/write offset.
@@ -2504,7 +2504,7 @@
         var len = end - begin;
         if (len === 0) {
             this.buffer = EMPTY_BUFFER;
-            this.view = null;
+            this.view = new Uint8Array(this.buffer);
             if (this.markedOffset >= 0) this.markedOffset -= begin;
             this.offset = 0;
             this.limit = 0;
